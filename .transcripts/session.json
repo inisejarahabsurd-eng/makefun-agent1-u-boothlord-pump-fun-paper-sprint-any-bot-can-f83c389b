@@ -1,0 +1,49 @@
+{
+  "harness": "makefun-discord-bot",
+  "harness_version": "2.0.0",
+  "model": "cbai/glm-5.3-flash",
+  "provider": "pecut-router",
+  "handed_over": "Discord bot; messages reconstructed from build log",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Build entry for \"u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b\"",
+      "timestamp": "2026-11-24T22:40:26.497Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Building entry for u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b.",
+      "timestamp": "2026-11-24T22:40:56.497Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Writing: LICENSE\n```\nMIT License\n\nCopyright (c) 2026 hazel-ibis-98-5948\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n```",
+      "timestamp": "2026-11-24T22:41:26.497Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Writing: README.md\n```\n[![make.fun bounty](https://make.fun/badge/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b.svg)](https://make.fun/bounty/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b?utm_source=github&utm_medium=readme&utm_campaign=u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b)\n[![rank](https://make.fun/badge/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b/inisejarahabsurd-eng/makefun-agent1-u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b/rank.svg)](https://make.fun/bounty/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b?utm_source=github&utm_medium=readme&utm_campaign=u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b)\n[![reward](https://make.fun/badge/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b/inisejarahabsurd-eng/makefun-agent1-u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b/reward.svg)](https://make.fun/bounty/u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b?utm_source=github&utm_medium=readme&utm_campaign=u-boothlord-pump-fun-paper-sprint-any-bot-can-f83c389b)\n\n# Pump.fun Paper Sprint — Momentum Sniper\n\nA paper-trading bot entry for the **Pump.fun Paper Sprint: Any Bot Can Win** bounty.\nOne file (`main.ts`), Node 22, zero runtime dependencies, pure strategy.\n\n## Strategy\n\nShort forward windows with unknown start punish clever, overfit strategies and\nreward simple, adaptive ones. This entry is deliberately conservative:\n\n1. **Trade little.** Fees and slippage destroy marginal trades, so every entry\n   must clear a \n```",
+      "timestamp": "2026-11-24T22:41:26.497Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Writing: main.ts\n```\n/**\n * Pump.fun Paper Sprint — Momentum Sniper\n *\n * Strategy: sparse, high-conviction momentum entries with hard stops\n * and quick take-profits. Trade little; fees and slippage kill marginal\n * trades. One position at a time. Cut losers fast.\n *\n * I/O contract (defensive, tolerant of every reasonable house harness):\n *  - Reads market events as newline-delimited JSON on stdin, or from a\n *    file given as argv[2], or (if neither) idles gracefully.\n *  - Emits trades as newline-delimited JSON on stdout:\n *      { \"action\": \"buy\" | \"sell\", \"mint\": string, \"amountSol\": number,\n *        \"reason\": string, \"ts\": number }\n *  - Never throws. Never writes non-JSON to stdout. Flushes every line.\n *\n * Recognized event shapes (union of common harness formats):\n *  { type: \"new_token\" | \"token\" | \"trade\" | \"tick\" | \"price\", mint, ... }\n *  { mint, price | priceUsd | price_sol | marketCapSol, ts | timestamp | time }\n * Unknown fields ignored; unknown event types ignored.\n */\n\nimport * as readline from \"node:readline\";\n\n/* ------------------------------------------------------------------ */\n/* Config                                                              */\n/* ------------------------------------------------------------------ */\n\nconst CFG = {\n  startSol: 10, // notional paper bankroll for sizing math\n  maxPctPerTrade: 0.25, // risk at most 25% of bankroll per entry\n  minPctPerTrade: 0.05,\n  maxOpenPositions: 1, // one at a time: focus, no death by a thousand cuts\n  takeProfit\n```",
+      "timestamp": "2026-11-24T22:41:26.497Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Writing: package.json\n```\n{\n  \"name\": \"pumpfun-paper-momentum-sniper\",\n  \"version\": \"1.0.0\",\n  \"description\": \"Paper-trading bot for the Pump.fun Paper Sprint: sparse momentum entries with hard stops and quick take-profits.\",\n  \"main\": \"main.ts\",\n  \"type\": \"commonjs\",\n  \"scripts\": {\n    \"start\": \"node --experimental-strip-types main.ts\",\n    \"build\": \"tsc\",\n    \"check\": \"tsc --noEmit\"\n  },\n  \"engines\": {\n    \"node\": \">=22.0.0\"\n  },\n  \"devDependencies\": {\n    \"typescript\": \"^5.5.0\",\n    \"@types/node\": \"^22.0.0\"\n  }\n}\n```",
+      "timestamp": "2026-11-24T22:41:26.497Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Writing: tsconfig.json\n```\n{\n  \"compilerOptions\": {\n    \"target\": \"ES2022\",\n    \"module\": \"commonjs\",\n    \"moduleResolution\": \"node\",\n    \"lib\": [\"ES2022\"],\n    \"strict\": true,\n    \"noImplicitAny\": true,\n    \"noUnusedLocals\": false,\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true,\n    \"forceConsistentCasingInFileNames\": true,\n    \"outDir\": \"dist\",\n    \"rootDir\": \".\",\n    \"resolveJsonModule\": true,\n    \"declaration\": false,\n    \"sourceMap\": false\n  },\n  \"include\": [\"main.ts\"],\n  \"exclude\": [\"node_modules\", \"dist\"]\n}\n```",
+      "timestamp": "2026-11-24T22:41:26.497Z"
+    },
+    {
+      "role": "assistant",
+      "content": "Done.",
+      "timestamp": "2026-11-24T22:42:21.497Z"
+    }
+  ]
+}
