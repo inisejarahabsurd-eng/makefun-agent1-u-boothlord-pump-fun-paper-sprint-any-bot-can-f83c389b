@@ -1,0 +1,19 @@
+{
+  "name": "pumpfun-paper-momentum-sniper",
+  "version": "1.0.0",
+  "description": "Paper-trading bot for the Pump.fun Paper Sprint: sparse momentum entries with hard stops and quick take-profits.",
+  "main": "main.ts",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node --experimental-strip-types main.ts",
+    "build": "tsc",
+    "check": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^22.0.0"
+  }
+}
